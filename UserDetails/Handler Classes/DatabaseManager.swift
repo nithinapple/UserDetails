@@ -101,7 +101,7 @@ extension Address {
     // Full address of the user
     var fullAddress: String? {
         
-        var userAddress: String!
+        var userAddress = ""
         if (self.street?.count)! > 0 {
             userAddress = (self.street)! + ", "
         }
@@ -115,7 +115,7 @@ extension Address {
             userAddress = userAddress + "\nZipcode : \((self.zipcode)!)"
         }
 
-        return userAddress ?? "Unavailable"
+        return userAddress.count > 0 ? userAddress : "Unavailable"
         
     }
     
@@ -126,7 +126,7 @@ extension Company {
     // Company details of the user
     var companyDetails: String? {
         
-        var userCompany: String!
+        var userCompany = ""
         if (self.name?.count)! > 0 {
             userCompany = (self.name)! + "\n"
         }
@@ -137,7 +137,7 @@ extension Company {
             userCompany = userCompany + (self.bs)!
         }
 
-        return userCompany ?? "Unavailable"
+        return userCompany.count > 0 ? userCompany : "Unavailable"
     }
     
 }
